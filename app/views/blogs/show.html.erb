@@ -2,16 +2,15 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @blog.name %>
-  <%= @blog.topic %>
-  <#%=link_to (image_tag @blog.header_img.variant (resize: "360x360"))%>
+  <%= @blog.name %><br>
+  <%= @blog.topic %><br>
 
 </p>
  <!-- Page Content goes here -->
 <% @blog.images.each do |image| %>
  <%=link_to (image_tag image.variant(resize: "360x360")), image, :class => "show-img" %>
  <br><br>
- 
+
 <%end%>
 
 <p><%= @blog.description %></p>
