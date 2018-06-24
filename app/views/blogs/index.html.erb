@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Deep Learning Blog</h1>
+
+
+  <% @blogs.each do |blog| %>
+
+  <div class="col m4">
+
+
+      <% if blog.header_img.attached? %>
+      <%= link_to  (image_tag blog.header_img.variant(resize: "420x420")),blog_path(blog) %>
+      <% end %><br>
+
+      <%= blog.topic %><br>
+      <%= blog.name %><br>
+
+
+        <%= link_to 'Edit', edit_blog_path(blog) %>
+        <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+
+      </div>
+
+
+  <% end %>
+
+
+<%= link_to 'New Blog', new_blog_path %>
