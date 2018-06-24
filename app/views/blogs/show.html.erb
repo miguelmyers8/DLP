@@ -1,4 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Name:</strong>
+  <%= @blog.name %>
+  <%= @blog.topic %>
+  <#%=link_to (image_tag @blog.header_img.variant (resize: "360x360"))%>
+
+</p>
+ <!-- Page Content goes here -->
+<% @blog.images.each do |image| %>
+ <%=link_to (image_tag image.variant(resize: "360x360")), image, :class => "show-img" %>
+ <br><br>
+ 
+<%end%>
+
+<p><%= @blog.description %></p>
+
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
 <%= link_to 'Back', blogs_path %>
