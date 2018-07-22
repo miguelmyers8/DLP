@@ -1,3 +1,22 @@
+<script>
+async function modelloaded() {
+  const model = await tf.loadModel('http://localhost:3000/tfjs/model.json')
+  console.log(model); // 20
+  document.getElementById("subbtn").onclick = function(){
+    x = document.getElementById('myBtn').value
+  console.log(x);
+  }
+}
+modelloaded();
+
+
+
+
+
+
+</script>
+
+
 <%= form_with(model: blog, local: true) do |form| %>
   <% if blog.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +32,7 @@
 
   <div class="field">
     <%= form.label :topic %>
-    <%= form.text_field :topic %><br>
+    <%= form.text_field :topic, id: "myBtn" %><br>
 
     <%= form.label :name %>
     <%= form.text_field :name %><br>
@@ -30,6 +49,6 @@
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit id: "subbtn" %>
   </div>
 <% end %>
